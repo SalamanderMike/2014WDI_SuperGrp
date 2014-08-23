@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'posts#index'
 
   resources :users do
     resources :posts
@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   # get 'posts/:id/edit', to: 'posts#edit'
   get 'tags', to: 'tags#index'
   get 'tags/:id', to: 'tags#show'
+  get 'users/:user_id/tags/:tag_id', to: 'tags#showbyuser'
 
   # post 'posts/create', to: 'posts#create'
   # delete 'posts/:id', to: 'posts#delete'
   # put 'posts/:id', to: 'posts#update'
 
 end
-
 
