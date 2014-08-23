@@ -9,6 +9,8 @@ git branch dev                                                         # creates
 git checkout dev                                                       # switches to that branch
 
 git remote add upstream git://github.com/siejen/{name-of-repo}.git     # adds this as the upstream (i.e. master copy)
+	Note for this last line: make sure you replace the https: with git: 
+	[copy/pasting the address will paste the https:]
 ```
 
 
