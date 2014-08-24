@@ -16,7 +16,7 @@ git remote add upstream https://github.com/siejen/{name-of-repo}.git     # adds 
 
 # workflow:
 ```
-git pull upstream                          # syncs with any other team member changes made in meantime
+git pull upstream master                   # syncs with any other team member changes made in meantime
 
 <make some edits>                          # coding away!
 
