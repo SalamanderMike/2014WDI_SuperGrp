@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'tags/:id', to: 'tags#show'
   get 'users/:user_id/tags/:tag_id', to: 'tags#showbyuser'
 
-  # get 'pages', to: 'pages#index'
+  get 'pages', to: 'pages#index'
   get 'pages/:user_id', to: 'pages#show'
 
   # post 'posts/create', to: 'posts#create'
