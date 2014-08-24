@@ -1,7 +1,12 @@
 <!-- show.html.erb -->
-<h3> Welcome <%= @user.name %> to your homepage! </h3>
+<h3> Welcome <%= @user.first_name %> <%= @user.last_name %> to your homepage! </h3>
 
-<p>User: <%= @post.name %></p>
-<p>Image: <%= @user.image %></p>
+<p>User: <%= @user.first_name %></p>
+<p>Image: <%= @user.image_url %></p>
 
-<p><%= @user.content %></p>
+<ul>
+  <% @user.pages.each do |page| %>
+	Name: <%= page.name %><br/>
+	Content: <%= page.content %>
+  <% end %>
+</ul>
