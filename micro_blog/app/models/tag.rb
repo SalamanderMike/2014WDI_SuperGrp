@@ -8,16 +8,17 @@ class Tag < ActiveRecord::Base
 
 
 	validates :name, uniqueness: true, presence: true
- 	validates :length {
-    minimum: 1,
-    maximum: 4,
-    tokenizer: lambda { |str| str.scan(/\w+/) },
-    too_short: "must have at least %{count} words",
-    too_long: "must have at most %{count} words"
+ 	validates :body, length: {
+ 			minimum: 1,
+ 			maximum: 4,
+ 			too_short: "must have at least %{count} words",
+    	too_long: "%{count} characters is the maximum allowed" }, presence: true
+    	tokenizer: lambda { |str| str.scan(/\w+/) }
   }
   validates format: { with: /^\s*[a-zA-Z0-9]+\s*$/,
-    message: "The tag cannot have any spaces or special characters"
+    				message: "The tag cannot have any spaces or special characters"
   }
+
 
 
 
