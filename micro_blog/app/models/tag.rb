@@ -8,11 +8,6 @@ class Tag < ActiveRecord::Base
 
 
 	validates :name, uniqueness: true, presence: true
- 	validates :body, length: {
- 			minimum: 1,
- 			maximum: 4,
- 			too_short: "must have at least %{count} words",
-  	  		too_long: "%{count} characters is the maximum allowed" }, presence: true
     
 	has_many :post_tags
 	has_many :posts, :through => :post_tags
