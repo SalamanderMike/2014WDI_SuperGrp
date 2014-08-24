@@ -1,0 +1,11 @@
+<!-- new.html.erb -->
+
+<h2>Enter your namefor "<%= @user.id %>"</h2>
+
+<%= form_for [@user, @page] do |f| %>
+  <%= f.label :name %>:<br>
+  <%= f.text_field :name, autofocus %><br>
+  <%= f.label :content %>:<br>
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
+<% end %>
