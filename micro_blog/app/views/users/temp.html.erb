@@ -1,0 +1,9 @@
+<% @users.each do |user| %>
+
+  <%= form_for user do |f| %>
+
+      <%= f.label :first_name, :last_name %></br>
+      <%= f.label :email %></br>
+
+  <% end %>
+<% end %>

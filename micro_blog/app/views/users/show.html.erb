@@ -1,8 +1,7 @@
 <p>
 <div class="container">
   <% @users.each do |user| %>
-    <h3 style="margin: -5px;"><%= user.first_name %></h3>
-    <h3 style="margin: -5px;"><%= user.last_name %></h3>
+    <h3 style="margin: -4px;"><%= "#{user.first_name} #{user.last_name}" %></h3>
     <p>email: <%= user.email %></p>
     <p>User ID: <%= user.id %></p>
 
