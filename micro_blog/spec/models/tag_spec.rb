@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Tag, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "has necessary attributes" do
+    tag = Tag.new(name: "hungry")
+    expect(tag.name).to eq("hungry")
+  end
+
 end
