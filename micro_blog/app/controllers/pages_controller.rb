@@ -2,11 +2,6 @@
 
 class PagesController < ApplicationController
 
-	# def index
-	# 	user_id = params[:user_id]
-	# 	@user = User.find(user_id)
-	# 	@pages = @user.pages 
-	# end
 
 	def new
 		user_id = params[:user_id]
@@ -23,6 +18,10 @@ class PagesController < ApplicationController
 
 		# redirect_to [@user, @pages]
 		redirect_to user_page_path(@user.id, @page)
+	end
+
+	def edit
+		@user = User.find_by_id(params[:id])
 	end
 
 	def show
