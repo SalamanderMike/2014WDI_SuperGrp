@@ -1,3 +1,5 @@
+# users_controllers.rb
+
 class UsersController < ApplicationController
   def index
     @users = User.all

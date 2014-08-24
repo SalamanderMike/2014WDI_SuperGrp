@@ -1,0 +1,27 @@
+<!-- show.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+
+				<h1><%= @post.title %></h1>
+
+<!-- <p>Author: <%= @post.author %></p> -->
+				<!-- Still need to get the tags to appear on this show page -->
+
+				<% if @tags.length > 0 %>
+				<p>Tags:
+					<% @tags.each do |tag| %>
+					<a href="/tags/<%=tag.id%>"><%=tag.name%></a>
+				<% end %>
+					</p>
+				<% end %>
+
+					<p><%= @post.body %></p>
+
+			<%= button_to "Update", edit_post_path(@post), method: :get %>
+			<%= button_to "Delete", @post, method: :delete %>
+
+		</div>
+	</div>
+</div>
