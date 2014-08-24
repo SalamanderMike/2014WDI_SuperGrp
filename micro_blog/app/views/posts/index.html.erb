@@ -10,8 +10,8 @@ Temporary posts#index Page for route testing
 
     <% @all_posts.each do |post| %>
     	<h3>Title: <%= link_to post.title, post %></h3>
-    	<!-- <p>Written by <%= post.author %> on <%= post.updated_at.to_formatted_s(:long) %></p> -->
     	<p><%= post.body %></p>
+      <p>Author: <%= post.user.first_name %> <%= post.user.last_name %></p>      
     	<p><%= link_to "#{post.comments.length} comments", post_comments_path(post) %></p>
 		<% end %>
 
