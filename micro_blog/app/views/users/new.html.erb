@@ -1,16 +1,11 @@
-<!-- new.html.erb -->
-
 <h3 style="text-align: center;font-style:italic;">New User!</h3>
-
 <div class="container">
-
   <%= form_for @user do |f| %>
-    <%= f.text_field :first_name,class: "form-control", placeholder: "First Name",
-                                                        autofocus: true %></br>
-    <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %></br>
-    <%= f.text_field :email, class: "form-control", placeholder: "email" %></br>
-    <%= f.text_area :image_url, class: "form-control", placeholder: "URL to your image" %></br>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "First Name",
+                                                          autofocus: true %></br>
+    <%= f.text_field :last_name,  class: "form-control", placeholder: "Last Name" %></br>
+    <%= f.text_field :email,      class: "form-control", placeholder: "email" %></br>
+    <%= f.text_area :image_url,   class: "form-control", placeholder: "URL to your image" %></br>
     <%= f.submit "Save Your User Info", class: "btn btn-primary" %>
   <% end %>
-
 </div>
