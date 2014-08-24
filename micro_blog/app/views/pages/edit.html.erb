@@ -1,5 +1,26 @@
 <!-- edit.html.erb -->
 
+<<<<<<< HEAD
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :name %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Update" %>
+<% end %>
+=======
 <div class="container">
     <div class="row">
        <div class="col-xs-offset-1 col-xs-6">
@@ -13,3 +34,4 @@
 		</div>
  	</div>
 </div>
+>>>>>>> 4800167d0366738b7c760e7fc5417ad4cfdaaf7f
