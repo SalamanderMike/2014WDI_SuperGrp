@@ -8,7 +8,11 @@
 
     <% @all_posts.each do |post| %>
     <h2><%= link_to post.title, post %></h2>
-    <p>written by <%= current_user.last_name %> on <%= post.updated_at.to_formatted_s(:long) %></p>
+    <p>Written By <%= post.user.first_name %> on
+        <%= post.updated_at.to_formatted_s(:long) %>
+    </p>
+
+
     <p><%= post.body %></p>
     <p><%= link_to "#{post.comments.length} comments", post_comments_path(post) %></p>
     <% end %>
