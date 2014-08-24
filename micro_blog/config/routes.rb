@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-
-
   # get 'posts', to: 'posts#index'
   # get 'posts/new', to: 'posts#new'
   # get 'posts/:id', to: 'posts#show'
@@ -23,6 +21,9 @@ Rails.application.routes.draw do
   get 'tags', to: 'tags#index'
   get 'tags/:id', to: 'tags#show'
   get 'users/:user_id/tags/:tag_id', to: 'tags#showbyuser'
+
+  get 'pages', to: 'pages#show'
+
 
   # post 'posts/create', to: 'posts#create'
   # delete 'posts/:id', to: 'posts#delete'
