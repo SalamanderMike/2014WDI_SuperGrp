@@ -1,9 +1,15 @@
 <!-- edit.html.erb -->
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :name %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.submit "Update" %>
-<% end %>
+<div class="container">
+    <div class="row">
+       <div class="col-xs-offset-1 col-xs-6">
+			<%= form_for @user do |f| %>
+			  <%= f.label :username %>
+			  <%= f.text_field :name %>
+			  <%= f.label :content %>
+			  <%= f.text_area :content %>
+			  <%= f.submit "Update" %>
+			<% end %>
+		</div>
+ 	</div>
+</div>
