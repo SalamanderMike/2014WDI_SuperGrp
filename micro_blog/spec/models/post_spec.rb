@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Post, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "has necessary attributes" do
+    post = Post.new(body: "meow meow", user_id: 1)
+    expect(post.body).to eq("meow meow")
+    expect(post.user_id).to eq(1)
+  end
+
 end

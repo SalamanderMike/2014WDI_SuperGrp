@@ -1,0 +1,39 @@
+<!-- new.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+
+
+					<h2>Enter a Post</h2>
+
+					<%= form_for @post do |f| %>
+
+<!-- 				<p>
+ 					<%= f.label :author %>
+				  	<%= f.text_field :author, placeholder: "Enter author"%>
+ 					</p>
+ -->
+ 					<p>
+ 					<%= f.label :title %>
+ 					<%= f.text_field :title, placeholder: "Enter title"%>
+				 </p>
+
+ 					<p>
+ 					<%= f.text_area :body, placeholder: "Enter description" %>
+ 					</p>
+
+ 					<p>
+ 					<%= f.label :tags %>
+ 					<%= text_field_tag :tags, nil, placeholder: "Enter tags" %>
+ 					</p>
+
+					<p>
+					<%= f.submit "Save", class: "btn btn-primary" %>
+					</p>
+
+					<% end %>
+
+		</div>
+	</div>
+</div>
