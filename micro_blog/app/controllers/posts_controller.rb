@@ -9,16 +9,17 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @tags = @post.tags
   end
-  
+
   def new
     @post = Post.new
     render :new
   end
-  
+
   def create
     post_data = params[:post].permit(:title, :body)
-    tag_data = params[:tag].split(",")
-    tag_data = tag_data.map(&:strip).map(&:downcase)
+    # tag_data = params[:tag].split(",")
+    # tag_data = tag_data.map(&:strip).map(&:downcase)
+    tag_data = params[:tags].split(",").map(&:strip).map(&:downcase)
 
     post = Post.create(post_data)
     tag_data.each do |tag_str|
@@ -32,11 +33,11 @@ class PostsController < ApplicationController
     # redirect to show all the posts using posts#index
     redirect_to "/posts"
   end
-  
+
   def edit
     @post = Post.find_by_id(params[:id])
   end
-  
+
   def update
     id_data = params[:id]
     post_data = params[:post].permit(:title, :body)
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
     end
     redirect_to "/posts/" + id_data
   end
-  
+
   def destroy
     id = params[:id]
     post = Post.find(id)
