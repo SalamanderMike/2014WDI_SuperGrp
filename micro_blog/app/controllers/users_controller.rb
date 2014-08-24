@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
     user = User.find_by_id(params[:id])
-    user.update_attributes(user_data) if (user)
+    user.update_attributes(user_data)
 
     # redirect_to "/users/" + user.user_id # Save for when we have a user page
     redirect_to users_path
