@@ -6,17 +6,24 @@
 
 				<h1><%= @post.title %></h1>
 
+				<p><%= @post.body %></p>
+
+				<p>
+					<% @post.comments.each do |comment| %>
+						Comment:<br/>
+						<%= comment.content %><br/>
+					<% end %>
+				</p>
+
 				<% if @tags.length > 0 %>
 				<p>Tags:
 					<% @tags.each do |tag| %>
-					<a href="/tags/<%=tag.id%>"><%=tag.name%></a>
+					<a href="/tags/<%=tag.id%>"><%=tag.name%></a><br/>
 				<% end %>
-					</p>
-				<% end %>
+				</p>
+				<% end %>					
 
-					<p><%= @post.body %></p>
-
-			<%= button_to "Update", edit_post_path(@post), method: :get %>
+			<%= button_to "Update", edit_post_path(@post), method: :get %><br/>
 			<%= button_to "Delete", @post, method: :delete %>
 
 		</div>
