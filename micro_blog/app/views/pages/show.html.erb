@@ -1,12 +1,24 @@
 <!-- show.html.erb -->
-<h3> Welcome <%= @user.first_name %> <%= @user.last_name %> to your homepage! </h3>
 
-<p>User: <%= @user.first_name %></p>
-<p>Image: <%= @user.image_url %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-6">
 
-<ul>
-  <% @user.pages.each do |page| %>
-	Name: <%= page.name %><br/>
-	Content: <%= page.content %>
-  <% end %>
-</ul>
+		<h3> Welcome <%= @user.first_name %> <%= @user.last_name %> to your homepage! </h3>
+
+		<p>User: <%= @user.first_name %></p>
+		<p>Image: <%= @user.image_url %></p>
+
+		<ul>
+		  <% @user.pages.each do |page| %>
+			Name: <%= page.name %><br/>
+			Content: <%= page.content %>
+		  <% end %>
+		</ul>
+
+		<%= button_to "Update", edit_user_path(@user), method: :get %><br/>
+		<%= button_to "Delete", @user, method: :delete %>
+
+		</div>
+	</div>
+</div>
