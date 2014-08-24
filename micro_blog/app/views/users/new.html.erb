@@ -9,6 +9,7 @@
                                                         autofocus: true %></br>
     <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %></br>
     <%= f.text_field :email, class: "form-control", placeholder: "email" %></br>
+    <%= f.text_field :email_confirmation, class: "form-control", placeholder: "email confirmation" %>
     <%= f.text_area :image_url, class: "form-control", placeholder: "URL to your image" %></br>
     <%= f.submit "Save Your User Info", class: "btn btn-primary" %>
   <% end %>
