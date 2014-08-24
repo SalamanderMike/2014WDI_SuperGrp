@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'posts#index'
+  root to: 'users#index'
 
   resources :users do
     resources :posts
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+
 
   # get 'posts', to: 'posts#index'
   # get 'posts/new', to: 'posts#new'
