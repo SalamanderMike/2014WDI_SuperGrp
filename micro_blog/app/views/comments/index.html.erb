@@ -1,2 +1,36 @@
+<!-- index.html.erb -->
+
 Temporary comments#index Page for route testing
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+
+    <div>
+        <h2><%= @post.title %> </h2>
+        <p>
+        <%=  @post.body %><br>
+        </p>
+    </div>
+
+		<div>
+				<h2>Comments:</h2><br>
+				<p>
+				<% if @comments.length >0 %>
+
+				<% @comments.each do |comment| %>
+				<%= comment.content %><br>
+				</p>
+
+		</div>
+
+  			<% end %>
+			<% else %>
+
+		<% end %>
+
+		</div>
+	</div>
+</div>
+
 

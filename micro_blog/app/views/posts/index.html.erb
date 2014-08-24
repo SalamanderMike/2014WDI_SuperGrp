@@ -1,2 +1,19 @@
-Temporary posts#index Page for route testing
+<!-- index.html.erb -->
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-6">
+
+<h1>Posts</h1>
+
+    <% @all_posts.each do |post| %>
+    	<h3>Title: <%= link_to post.title, post %></h3>
+    	<p><%= post.body %></p>
+      <p>Author: <%= post.user.first_name %> <%= post.user.last_name %></p>      
+    	<p><%= link_to "#{post.comments.length} comments", post_comments_path(post) %></p>
+		<% end %>
+
+
+    </div>
+  </div>
+</div>
