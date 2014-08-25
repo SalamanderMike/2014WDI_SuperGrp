@@ -8,6 +8,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def flashMsg
+    if @user.create
+      flash[:notice] = "New User created successfully!"
+      redirect_to users_path
+    else
+      flash[:error] = "Unable to create new user"
+      render "users/new"
+    end
+  end
+
   def create
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
     User.create(user_data) # Delete this line if useing below commented code
