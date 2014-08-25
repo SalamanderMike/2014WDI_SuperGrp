@@ -6,7 +6,6 @@ class Tag < ActiveRecord::Base
 		# format
 		# no spaces or special characters
 
-
 	validates :name, uniqueness: true, presence: true
     
 	has_many :post_tags
