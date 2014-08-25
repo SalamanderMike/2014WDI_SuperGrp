@@ -2,6 +2,9 @@
 
 class PagesController < ApplicationController
 
+	def index
+    	@pages = Page.all
+	end
 
 	def new
 		user_id = params[:user_id]
