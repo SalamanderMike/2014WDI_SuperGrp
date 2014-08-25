@@ -8,7 +8,7 @@
 
     <% @all_posts.each do |post| %>
     <h2><%= link_to post.title, post %></h2>
-    <p>Written By <%= post.user.first_name %> on
+    <p>Written By <%= post.user ? post.user.first_name: "nil" %> on
         <%= post.updated_at.to_formatted_s(:long) %>
     </p>
 
