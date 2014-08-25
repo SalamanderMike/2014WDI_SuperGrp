@@ -4,13 +4,14 @@ class PagesController < ApplicationController
 
 	def index
     	@pages = Page.all
+    	@users = User.all
 	end
 
 	def new
 		user_id = params[:user_id]
 		@user = User.find(user_id)
 		@page = @user.pages.new
-	end	
+	end
 
 	def create
 		user_id = params[:user_id]

@@ -1,41 +1,6 @@
 <h3 style="text-align: center;font-style:italic;">Welcome To the SuperGroup MicroBlog!</h3>
 
 
-<!-- Go to your profile page -about page
-Create a blog post -new post
-Check out other users -list of users -about page
-Check out the latest blog entries -list of blog posts -comments, tags -->
-
-
-<div class="container">
-  <div class="row">
-    <ul class="ds-btn">
-        <li>
-             <a class="btn btn-lg btn-info" href="javascript:;">
-          <i class="glyphicon glyphicon-user pull-left"></i><span>Profile!<br><small>My Profile Page</small></span></a>
-
-        </li>
-        <li>
-             <a class="btn btn-lg btn-success " href="javascript:;">
-         <i class="glyphicon glyphicon-dashboard pull-left"></i><span>Blog!<br><small>Write a Blog Post</small></span></a>
-
-        </li>
-        <li>
-             <a class="btn btn-lg btn-danger" href="/users">
-         <i class="glyphicon glyphicon-tasks pull-left"></i><span>Users!<br><small>Find Other Users</small></span></a>
-
-        </li>
-        <li>
-               <a class="btn btn-lg btn-warning" href="/posts">
-        <i class="glyphicon glyphicon-search pull-left"></i><span>Now!<br><small>Checkout the Latest Posts!</small></span></a>
-        </li>
-    </ul>
-
-  </div>
-</div>
-</br></br>
-
-
 <div class="container">
   <% @users.each do |user| %>
     <%= form_for user do |f| %>
