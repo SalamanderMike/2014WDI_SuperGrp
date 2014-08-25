@@ -9,22 +9,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def flashMsg
-    if @user.create
-      flash[:notice] = "New User created successfully!"
-      redirect_to users_path
+  def create
+    user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
+    @user = User.create(user_data)
+
+    if @user.errors.count == 0 # Delete this line if using below commented code
+      flash[:notice] = "New User created successfully"
+       redirect_to users_path
     else
       flash[:error] = "Unable to create new user"
       render "users/new"
     end
-  end
-
-  def create
-    user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
-    User.create(user_data) # Delete this line if useing below commented code
     # user = User.create(user_data) #use with commented code below
     # redirect_to "/users/" + user.user_id ## save until user has a page
-    redirect_to users_path
+    # redirect_to users_path
   end
 
   def show
@@ -52,4 +50,5 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to users_path
   end
+
 end
