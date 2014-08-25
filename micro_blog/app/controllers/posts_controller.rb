@@ -3,6 +3,8 @@
 class PostsController < ApplicationController
   def index
     @all_posts = Post.all
+    @user_id = params[:user_id]
+
   end
 
   def show
