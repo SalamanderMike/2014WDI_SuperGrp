@@ -1,7 +1,8 @@
 # users_controllers.rb
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # @users = User.find_by_id(1) #Use until we integrate Authentication
+    @users = User.all # Use after integrating signin
   end
 
   def new
