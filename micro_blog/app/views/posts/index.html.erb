@@ -12,7 +12,6 @@
         <%= post.updated_at.to_formatted_s(:long) %>
     </p>
 
-
     <p><%= post.body %></p>
     <p><%= link_to "#{post.comments.length} comments", post_comments_path(post) %></p>
     <% end %>

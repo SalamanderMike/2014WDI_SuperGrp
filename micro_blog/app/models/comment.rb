@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
 
 	 	validates :content, presence: true, length: {
-    minimum: 15,
+    minimum: 1,
     maximum: 40,
     tokenizer: lambda { |str| str.scan(/\w+/) },
     too_short: "must have at least %{count} words",

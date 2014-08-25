@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   def new
+    p params
     @post = Post.new
+    @user_id = params[:user_id]
     render :new
   end
 
@@ -21,6 +23,8 @@ class PostsController < ApplicationController
     # tag_data = tag_data.map(&:strip).map(&:downcase)
     tag_data = params[:tags].split(",").map(&:strip).map(&:downcase)
 
+    post_data [:user_id]=params[:user_id].to_i
+
     post = Post.create(post_data)
     tag_data.each do |tag_str|
       tag = Tag.find_by_name(tag_str)
@@ -29,6 +33,9 @@ class PostsController < ApplicationController
       end
       post.tags << tag
     end
+
+    # flash component for error messages
+    flash[:error] = "oops something went wrong!"
 
     # redirect to show all the posts using posts#index
     redirect_to "/posts"
