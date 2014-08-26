@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
     @pages = @user.pages
