@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'site#index'
+  get "/" => "session#new"
+  post "/" => "session#create"
+  root to: 'login#index'
   get "/login" => "session#new"
   post "/login" => "session#create"
 
@@ -19,6 +21,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :comments do
+    resources :comments
+  end
+
   # get 'posts', to: 'posts#index'
   # get 'posts/new', to: 'posts#new'
   # get 'posts/:id', to: 'posts#show'
@@ -29,6 +35,8 @@ Rails.application.routes.draw do
 
   get 'pages', to: 'pages#index'
   get 'pages/:user_id', to: 'pages#show'
+
+  get 'login', to: 'login#index'
 
   # post 'posts/create', to: 'posts#create'
   # delete 'posts/:id', to: 'posts#delete'
