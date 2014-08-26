@@ -1,8 +1,10 @@
 # users_controllers.rb
 class UsersController < ApplicationController
+  before_action :is_authenticated?
+
   def index
-    # @users = User.find_by_id(1) #Use until we integrate Authentication
-    @users = User.all # Use after integrating signin
+    @current_user = current_user
+    @users = User.all
   end
 
   def new
@@ -17,35 +19,31 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages.to_sentence
       render "users/new"
     end
-    # user = User.create(user_data) #use with commented code below
-    # redirect_to "/users/" + user.user_id ## save until user has a page
-    # redirect_to users_path
+    redirect_to "/users/#{user.user_id}"
   end
 
   def show
+    @current_user = current_user
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
     @pages = @user.pages
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
     render :edit
   end
 
   def update
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
-    user = User.find_by_id(params[:id])
+    user = current_user
     user.update_attributes(user_data)
-
-    # redirect_to "/users/" + user.user_id # Save for when we have a user page
-    redirect_to users_path
+    userID = current_user.id.to_s
+    redirect_to "/users/#{userID}/pages/#{userID}"
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
-    user.destroy
-    redirect_to users_path
+    current_user.destroy
+    redirect_to login
   end
-
 end

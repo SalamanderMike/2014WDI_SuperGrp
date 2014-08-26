@@ -13,11 +13,14 @@
 		  <% @user.pages.each do |page| %>
 			Name: <%= page.name %><br/>
 			Content: <%= page.content %>
-		  <% end %>
 		</ul>
 
-		<%= button_to "Update", edit_user_path(@user), method: :get %><br/>
-		<%= button_to "Delete", @user, method: :delete %>
+		<% if page.user.id == session[:user_id] %>
+			<%= button_to "Update", edit_user_path(@user), method: :get %><br/>
+			<%= button_to "Delete", @user, method: :delete %>
+		 <% end %>
+
+	<% end %>
 
 		</div>
 	</div>

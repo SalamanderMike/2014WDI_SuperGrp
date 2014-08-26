@@ -22,7 +22,7 @@
 				</p>
 				<% end %>
 
-		<% if session[:user_id] == @user.id %>
+		<% if @post.user.id == session[:user_id] %>
 			<%= button_to "Update", edit_post_path(@post), method: :get %><br/>
 			<%= button_to "Delete", @post, method: :delete %>
 		<% end %>
