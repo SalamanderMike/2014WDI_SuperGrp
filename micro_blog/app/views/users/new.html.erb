@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
- 
+
     <ul>
     <% flash.each do |msg| %>
       <li><%= msg %></li>
@@ -9,15 +9,36 @@
     </ul>
   </div>
 <% end %>
+<style>
+  #error_explanation {
+  padding: 2px;
+  color: red;
+  display: table;
+}
+</style>
 
 <h3 style="text-align: center;font-style:italic;">New User!</h3>
 <div class="container">
   <%= form_for @user do |f| %>
+
+    <%= f.label :first_name %><br />
     <%= f.text_field :first_name, class: "form-control", placeholder: "First Name",
-                                                          autofocus: true %></br>
+    autofocus: true %></br>
+
+    <%= f.label :last_name %><br />
     <%= f.text_field :last_name,  class: "form-control", placeholder: "Last Name" %></br>
+
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class: "form-control", placeholder: "password" %><br />
+
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "confirm your password" %></br>
+   
+    <%= f.label :email %><br />
     <%= f.text_field :email,      class: "form-control", placeholder: "email" %></br>
+
     <%= f.text_area :image_url,   class: "form-control", placeholder: "URL to your image" %></br>
+
     <%= f.submit "Save Your User Info", class: "btn btn-primary" %>
   <% end %>
 </div>
