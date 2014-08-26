@@ -2,7 +2,9 @@
 
 class PostsController < ApplicationController
   def index
+    # @current_user = User.find_by_id(2)
     @all_posts = Post.all
+    # @user_id = @current_user.id
     @user_id = params[:user_id]
 
   end
@@ -15,7 +17,8 @@ class PostsController < ApplicationController
   def new
     p params
     @post = Post.new
-    @user_id = params[:user_id]
+    # @user_id = params[:user_id]
+    @user_id = User.find(2).id
     render :new
   end
 

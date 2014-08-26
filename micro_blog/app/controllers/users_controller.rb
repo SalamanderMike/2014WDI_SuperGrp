@@ -1,6 +1,10 @@
 # users_controllers.rb
 class UsersController < ApplicationController
+
+#     @current_user = User.find_by_id(2)
+
   def index
+    @current_user = User.find_by_first_name("Lisa")
     # @users = User.find_by_id(1) #Use until we integrate Authentication
     @users = User.all # Use after integrating signin
   end
@@ -32,13 +36,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @current_user = User.find_by_first_name("Lisa")
+
+    @user = @current_user
     render :edit
   end
 
   def update
+    @current_user = User.find_by_first_name("Lisa")
+
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
-    user = User.find_by_id(params[:id])
+    user = @current_user
     user.update_attributes(user_data)
 
     # redirect_to "/users/" + user.user_id # Save for when we have a user page
@@ -46,8 +54,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
-    user.destroy
+    @current_user = User.find_by_first_name("Lisa")
+
+    @current_user.destroy
     redirect_to users_path
   end
 
