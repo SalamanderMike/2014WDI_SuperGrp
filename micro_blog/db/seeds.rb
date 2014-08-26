@@ -6,8 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-lisa = User.create({email: "lisasimpson@ga.com", first_name: "Lisa", last_name: "Simpson", image_url: "http://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png"})
-bart = User.create({email: "bartsimpson@ga.com", first_name: "Bart", last_name: "Simpson", image_url: "http://img4.wikia.nocookie.net/__cb20110819022447/simpsons/images/5/53/Bart-simpson-prank-phone-call.jpg"})
+lisa = User.create({email: "lisasimpson@ga.com", first_name: "Lisa", last_name: "Simpson", password_digest: "$2a$10$1ZJYD2dKNsGhfdaP2AW9PuzZVRhOFjjG2Q7W43F4eQMluCj4ATBfq", image_url: "http://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png"})
+bart = User.create({email: "bartsimpson@ga.com", first_name: "Bart", last_name: "Simpson", password_digest: "$2a$10$1ZJYD2dKNsGhfdaP2AW9PuzZVRhOFjjG2Q7W43F4eQMluCj4ATBfq",image_url: "http://img4.wikia.nocookie.net/__cb20110819022447/simpsons/images/5/53/Bart-simpson-prank-phone-call.jpg"})
+marge = User.create({email: "margesimpson@ga.com", first_name: "Marge", last_name: "Simpson", password_digest: "$2a$10$1ZJYD2dKNsGhfdaP2AW9PuzZVRhOFjjG2Q7W43F4eQMluCj4ATBfq",image_url: "http://img4.wikia.nocookie.net/__cb20110819022447/simpsons/images/5/53/Bart-simpson-prank-phone-call.jpg"})
+homer = User.create({email: "homersimpson@ga.com", first_name: "Homer", last_name: "Simpson", password_digest: "$2a$10$1ZJYD2dKNsGhfdaP2AW9PuzZVRhOFjjG2Q7W43F4eQMluCj4ATBfq",image_url: "http://img4.wikia.nocookie.net/__cb20110819022447/simpsons/images/5/53/Bart-simpson-prank-phone-call.jpg"})
+ned = User.create({email: "Ned@ga.com", first_name: "Ned", last_name: "Flanders", password_digest: "$2a$10$1ZJYD2dKNsGhfdaP2AW9PuzZVRhOFjjG2Q7W43F4eQMluCj4ATBfq",image_url: "http://img4.wikia.nocookie.net/__cb20110819022447/simpsons/images/5/53/Bart-simpson-prank-phone-call.jpg"})
 
 hw = bart.posts.create({title: "Homework", body: "I hate homework"})
 lol = lisa.posts.create({title: "Labor of Love", body: "I love homework"})

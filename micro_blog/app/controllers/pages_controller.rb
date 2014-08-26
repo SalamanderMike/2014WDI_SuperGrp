@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 
 	def show
 		user_id = params[:user_id]
-		@user = User.find_by_id(2)
+		@user = current_user
 		# @pages = @user.pages
 	end
 

@@ -1,12 +1,10 @@
 # users_controllers.rb
 class UsersController < ApplicationController
-
-#     @current_user = User.find_by_id(2)
+  before_action :is_authenticated?
 
   def index
-    @current_user = User.find_by_first_name("Lisa")
-    # @users = User.find_by_id(1) #Use until we integrate Authentication
-    @users = User.all # Use after integrating signin
+    @current_user = current_user
+    @users = User.all
   end
 
   def new
@@ -24,9 +22,7 @@ class UsersController < ApplicationController
       flash[:error] = "Unable to create new user"
       render "users/new"
     end
-    # user = User.create(user_data) #use with commented code below
-    # redirect_to "/users/" + user.user_id ## save until user has a page
-    # redirect_to users_path
+    redirect_to "/users/#{user.user_id}"
   end
 
   def show
@@ -36,28 +32,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @current_user = User.find_by_first_name("Lisa")
-
-    @user = @current_user
+    @user = current_user
     render :edit
   end
 
   def update
-    @current_user = User.find_by_first_name("Lisa")
-
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
-    user = @current_user
+    user = current_user
     user.update_attributes(user_data)
-
-    # redirect_to "/users/" + user.user_id # Save for when we have a user page
-    redirect_to users_path
+    userID = current_user.id.to_s
+    redirect_to "/users/#{userID}/pages/#{userID}"
   end
 
   def destroy
-    @current_user = User.find_by_first_name("Lisa")
-
-    @current_user.destroy
-    redirect_to users_path
+    current_user.destroy
+    redirect_to login
   end
-
 end
