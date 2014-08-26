@@ -31,4 +31,10 @@ class CommentsController < ApplicationController
 		@comments = @post.comments.find(params[:id])
 	end
 
+	def update
+		# @user = current_user
+		@user = User.find_by(params[:user_id])
+		@comment = @user.comment.new
+	end
+
 end
