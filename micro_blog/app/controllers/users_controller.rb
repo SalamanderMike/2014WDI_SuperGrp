@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
-    redirect_to login
+      current_user.destroy
+      redirect_to "/login"
   end
 end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def is_authenticated?
   	# redirect_to login_url if session[:user_id].nil?
- 	redirect_to login_url unless current_user
+ 	redirect_to "/"  unless current_user
   end
 
   def current_user
