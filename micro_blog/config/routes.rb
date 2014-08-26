@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # get 'passwords/new'
+
   get "/" => "session#new"
   post "/" => "session#create"
   root to: 'login#index'
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :passwords
+  
   # get 'posts', to: 'posts#index'
   # get 'posts/new', to: 'posts#new'
   # get 'posts/:id', to: 'posts#show'
