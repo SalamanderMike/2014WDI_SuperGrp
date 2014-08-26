@@ -13,11 +13,8 @@ class UsersController < ApplicationController
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
     @user = User.create(user_data)
 
-    if @user.errors.count == 0 # Delete this line if using below commented code
-      flash[:notice] = "New User created successfully"
-       redirect_to users_path
-    else
-      flash[:error] = "Unable to create new user"
+    if @user.errors.any?
+      flash[:error] = @user.errors.full_messages.to_sentence
       render "users/new"
     end
     # user = User.create(user_data) #use with commented code below

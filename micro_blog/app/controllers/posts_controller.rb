@@ -8,7 +8,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
     @post = Post.find_by_id(params[:id])
+    puts @post.user
     @tags = @post.tags
   end
 

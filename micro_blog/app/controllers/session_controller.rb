@@ -11,7 +11,7 @@ class SessionController < ApplicationController
   		# session in line 12 must be "session"
   		session[:user_id] = @user.id
   		# render text: "Logged you in"
-  		redirect_to root_path
+  		redirect_to pages_path
   	else
   		render text: "Try again, dude! Signup :)"
   	end

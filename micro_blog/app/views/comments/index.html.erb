@@ -13,24 +13,19 @@
 
     </div>
 
-		<div>
-				<h2>Comments:</h2><br>
-				<p>
-				<% if @comments.length >0 %>
+<div>
+<h2>Comments:</h2><br>
+<a href="/posts/<%= params[:post_id]%>/comments/new">make a comment</a>
 
-				<% @comments.each do |comment| %>
-				<%= comment.content %><br>
-				</p>
+<p>
+<% if @comments.length >0 %>
+<% @comments.each do |comment| %>
+<%= comment.content %><br>
+<% end %>
+<% end %>
+</p>
 
-		</div>
-
-  			<% end %>
-			<% else %>
-
-		<% end %>
-
-		</div>
-	</div>
 </div>
-
-
+</div>
+</div>
+</div>
