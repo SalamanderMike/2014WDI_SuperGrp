@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.errors.any?
       flash[:error] = @user.errors.full_messages.to_sentence
-      render "users/new"
+      render new_user_path
     end
     redirect_to "/users/#{user.user_id}"
   end
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
 
   def destroy
       current_user.destroy
-      redirect_to "/login"
+      redirect_to login
   end
 end
