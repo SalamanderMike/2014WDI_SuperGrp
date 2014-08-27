@@ -1,6 +1,6 @@
 # users_controllers.rb
 class UsersController < ApplicationController
-  before_action :is_authenticated?
+  before_action :is_authenticated?, :except => [:new]
 
   def index
     @current_user = current_user
