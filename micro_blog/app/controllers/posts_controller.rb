@@ -52,6 +52,11 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
   end
 
+  #  def update
+  #   @user = current_user
+  #   @post = @user.post
+  # end
+
   def update
     id_data = params[:id]
     post_data = params[:post].permit(:title, :body)
