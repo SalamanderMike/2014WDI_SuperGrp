@@ -1,10 +1,9 @@
 <!-- new.html.erb -->
 
-<<<<<<< HEAD
 <% if @page.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
- 
+
     <ul>
     <% @page.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -15,34 +14,15 @@
 
 <h2>Enter your namefor "<%= @user.id %>"</h2>
 
-<%= form_for [@user, @page] do |f| %>
-  <%= f.label :name %>:<br>
-  <%= f.text_field :name, autofocus %><br>
-  <%= f.label :content %>:<br>
-  <%= f.text_area :content %><br>
-  <%= f.submit %>
-<% end %>
-=======
 <div class="container">
   <div class="row">
     <div class="col-xs-offset-4 col-xs-4">
 
-		<h2> Welcome to your page! </h2>
+<%= form_for [@user, @page] do |f| %>
+ <%= render partial: "form" %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
 
-		<%= form_for [@user, @page] do |f| %>
-
-		  <%= f.label :name %>:<br>
-		  <%= f.text_field :name, placeholder: "Enter your name", autofocus %><br>
-		  <p>
-		  	<%= f.label :content %>:<br>
-		  	<%= f.text_area :content, placeholder: "Enter content" %><br>
-		  </p>
-
-		  <%= f.submit "Save", class: "btn btn-primary" %>
-
-		  <% end %>
-		  
 		</div>
 	</div>
 </div>
->>>>>>> 4800167d0366738b7c760e7fc5417ad4cfdaaf7f
