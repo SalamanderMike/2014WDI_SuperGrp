@@ -3,7 +3,7 @@
 <% if @post.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+ 
     <ul>
     <% @post.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -38,9 +38,9 @@
 					<p>
 					<%= f.submit "Save", class: "btn btn-primary" %>
 					</p>
-
+          
           <input type="hidden" name="user_id" value="<%= @user_id %>">
-
+          
 
 					<% end %>
 
