@@ -6,3 +6,5 @@ class SiteController < ApplicationController
   	render text: "Hi #{current_user.email}, this is my secret page!"
   end
 end
+
+# Add signup link to users#new

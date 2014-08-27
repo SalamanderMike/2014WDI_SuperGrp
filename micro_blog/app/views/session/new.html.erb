@@ -1,21 +1,16 @@
 <h1>Login & Signup Page</h1>
 <%= flash.each do |k,v| %>
-<!-- 	<li><%= k %>: <%= v%></li>   -->	
-<h2 id="<%= k %>"><%= v%></h2>
+	<li><%= k %>: <%= v%></li>
 <% end %>
 
 <%= flash.map{|k,v| v}.join %>
 
 <%= form_for :user do |f| %>
-<%= f.text_field :email, placeholder: "Enter your email" %>
-<%= f.password_field :password, placeholder: "password" %>
-<%= f.submit "Login" %><br/>
 
-<%= link_to "Forgot Password?", new_password_path %>
+  <%= f.text_field :email, placeholder: "Enter your email" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.submit "Login" %><br/>
 
-<h1> Add link to sign up</h1>
-<%= link_to "New User ", new_user_path(@user) %></br>
-
-
-
+  <%= link_to "Forgot Password?", new_password_path %></br>
+  <%= link_to "Sign Up!", new_user_path %>
 <% end %>

@@ -6,14 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<style>
-body {
-  background: -webkit-linear-gradient(right, rgba(42, 187, 155,1), rgba(0,0,0,.1));
-}
-</style>
 <body>
-<!-- Temporary Navbar for testing navigation -->
-<!-- Please alter your routes for your own testing! -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -24,17 +17,13 @@ body {
         <li class="active"><a href="/users">Users</a></li>
         <li><a href="/posts">Posts</a></li>
         <li><a href="/tags">Tags</a></li>
-        <!-- <li><a href="/pages">Pages#Show</a></li> -->
-        <!-- <li><a href="/comments">Comments#Index</a></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="glyphicon glyphicon-search" href="javascript:;"> Search</a></li>
+        <li><%= link_to " Logout", logout_path, class: "glyphicon glyphicon-record" %></li>
       </ul>
     </div>
   </div>
 </nav><br/><br/><br/>
-
 <%= yield %>
-
 </body>
 </html>
