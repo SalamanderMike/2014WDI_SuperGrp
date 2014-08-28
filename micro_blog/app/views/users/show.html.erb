@@ -4,6 +4,7 @@
     <%= f.label :email, "#{@user.email}" %></br>
 
     <% if @user.id == @current_user.id %>
+      <%= link_to "Submit a Post", new_user_post_path(@current_user) %> </br>
       <%= link_to "Edit User ", edit_user_path(@current_user) %></br>
       <%= link_to "Delete", user_path(@current_user), method: :delete %></br></br>
     <% end %>

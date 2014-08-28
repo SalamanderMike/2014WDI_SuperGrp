@@ -15,10 +15,10 @@ class UsersController < ApplicationController
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
     @user = User.create(user_data)
 
-    if @user.errors.any?
-      flash[:error] = @user.errors.full_messages.to_sentence
-      render new_user_path
-    end
+    # if @user.errors.any?
+    #   flash[:error] = @user.errors.full_messages.to_sentence
+    #   render new_user_path
+    # end
     redirect_to "/users/#{user.user_id}"
   end
 
