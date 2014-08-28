@@ -1,21 +1,3 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-    <ul>
-    <% flash.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<style>
-  #error_explanation {
-  padding: 2px;
-  color: red;
-  display: table;
-}
-</style>
 
 <h3 style="text-align: center;font-style:italic;">New User!</h3>
 <div class="container">

@@ -1,6 +1,6 @@
 # users_controllers.rb
 class UsersController < ApplicationController
-  before_action :is_authenticated?, :except => [:new]
+  before_action :is_authenticated?, :except => [:new, :create]
 
   def index
     @current_user = current_user
@@ -12,15 +12,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
-    @user = User.create(user_data)
+    user = User.create(user_data)
+    session[:user_id] = user.id
 
-    # if @user.errors.any?
-    #   flash[:error] = @user.errors.full_messages.to_sentence
-    #   render new_user_path
-    # end
+    if user.errors.any?
+      flash[:error] = user.errors.full_messages.to_sentence
+      render new_user_path
+    end
 
-    redirect_to "/users/#{user.user_id}"
+    redirect_to user_pages_path(user.id)
   end
 
   def show
@@ -39,12 +39,17 @@ class UsersController < ApplicationController
     user_data = params.require(:user).permit(:email, :first_name, :last_name, :image_url)
     user = current_user
     user.update_attributes(user_data)
-    userID = current_user.id.to_s
+    userID = user.id.to_s
     redirect_to "/users/#{userID}/pages/#{userID}"
   end
 
   def destroy
       current_user.destroy
-      redirect_to login
+      redirect_to login_path
+  end
+
+private
+  def user_data
+    user_data = params.require(:user).permit(:email, :password, :first_name, :last_name, :image_url)
   end
 end
