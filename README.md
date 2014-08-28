@@ -36,4 +36,3 @@ git push -u origin master                  # pushes to master branch on your git
 
 <make a pull request on github from>       # asks owner of master repo to pull in changes
 ```
-  
