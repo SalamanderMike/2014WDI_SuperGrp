@@ -7,7 +7,12 @@
 		<h3> Welcome <%= @user.first_name %> <%= @user.last_name %> to your homepage! </h3>
 
 		<p>User: <%= @user.first_name %></p>
-		<p>Image: <%= @user.image_url %></p>
+
+		<div class="row">
+    		<div class="col-xs-12 col-sm-6 col-md-4">
+      			<img src="<%= "#{@user.image_url}" %>" class="img-responsive img">
+    		</div>
+    	</div>
 
 		<ul>
 		  <% @user.pages.each do |page| %>

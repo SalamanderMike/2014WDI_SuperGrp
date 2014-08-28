@@ -1,9 +1,4 @@
 <h1>Login & Signup Page</h1>
-<%= flash.each do |k,v| %>
-	<li><%= k %>: <%= v%></li>
-<% end %>
-
-<%= flash.map{|k,v| v}.join %>
 
 <%= form_for :user do |f| %>
 

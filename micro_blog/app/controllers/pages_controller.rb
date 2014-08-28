@@ -1,6 +1,7 @@
 # pages_controller.rb
 
 class PagesController < ApplicationController
+before_action :is_authenticated?
 
 	def index
     	@pages = Page.all
@@ -29,8 +30,8 @@ class PagesController < ApplicationController
 	end
 
 	def show
-		user_id = params[:user_id]
-		@user = User.find(user_id)
+		# user_id = params[:user_id]
+		@user = current_user
 		# @pages = @user.pages
 	end
 
